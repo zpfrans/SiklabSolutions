@@ -455,9 +455,7 @@
 
         // Check if user has already made a choice
         if (!localStorage.getItem('cookieConsent')) {
-          setTimeout(() => {
-            cookieBanner.classList.add('show');
-          }, 1000);
+          cookieBanner.classList.add('show');
         }
 
         acceptCookiesBtn.addEventListener('click', () => {
