@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Siklab Solutions — Modern Web Development & Security</title>
+    <meta name="description" content="Siklab Solutions — Web design, frontend, backend, fullstack development, maintenance and cybersecurity." />
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Add AOS for smooth scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- (removed Font Awesome to keep site lightweight; using simple text/SVG where needed) -->
+  </head>
+  <body>
+    <a class="skip-link sr-only-focusable" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-lg navbar-dark py-3">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+            <!-- Logo from assets -->
+            <img src="assets/Siklab.png" alt="Siklab Solutions logo" class="logo" />
+            <span class="brand-name">Siklab Solutions</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navMain">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+              <li class="nav-item"><a class="nav-link text-dark" href="#solutions">Solutions</a></li>
+              <li class="nav-item"><a class="nav-link text-dark" href="#portfolio">Portfolio</a></li>
+              <li class="nav-item"><a class="nav-link text-dark" href="#about">About</a></li>
+              <li class="nav-item"><a class="nav-link text-dark" href="#contact">Contact</a></li>
+              <li class="nav-item"><a class="btn btn-glow ms-lg-3" href="#contact" onclick="alert('Facebook page link coming soon!'); return false;">Let's Connect</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+  <main id="main-content">
+      <section class="hero py-5 position-relative overflow-hidden">
+        <div class="gradient-orb top-right" aria-hidden="true"></div>
+        <div class="gradient-orb bottom-left" aria-hidden="true"></div>
+        <div class="container position-relative">
+          <div class="row align-items-center gy-4">
+            <div class="col-lg-6" data-aos="fade-right">
+              <span class="badge bg-primary-subtle text-primary mb-3 animate-badge">Future-Ready Solutions</span>
+              <h1 class="display-4 fw-bold text-dark mb-4">Transforming Business Through <span class="highlight-text">Digital Innovation</span></h1>
+              <p class="lead mb-4">We empower businesses with cutting-edge web solutions, robust security systems, and scalable architecture for the digital age.</p>
+              <div class="d-flex gap-3 mb-4">
+                <a class="btn btn-glow btn-lg" href="#contact" onclick="alert('Facebook page link coming soon!'); return false;">Let's Connect</a>
+                <a class="btn btn-outline btn-lg" href="#solutions">Explore Solutions</a>
+              </div>
+              <!-- Compact: core messaging kept above; repeated tech lists removed for clarity -->
+            </div>
+            <div class="col-lg-6">
+              <!-- 3D-style card inspired by the referenced repo -->
+              <div class="hero-3d-wrap d-flex justify-content-center position-relative">
+                <div class="hero-3d-card shadow-lg d-flex align-items-center justify-content-center">
+                  <!-- Decorative aesthetic hero deck replacing the white card -->
+                  <div class="hero-deck" aria-hidden="true">
+                    <div class="deck-inner"></div>
+                    <!-- tech circuit SVG -->
+                    <div class="deck-tech" aria-hidden="true">
+                      <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                        <defs>
+                          <linearGradient id="g1" x1="0" x2="1">
+                            <stop offset="0%" stop-color="#ff6b35" stop-opacity="0.95" />
+                            <stop offset="100%" stop-color="#ff8c42" stop-opacity="0.95" />
+                          </linearGradient>
+                        </defs>
+                        <!-- grid of nodes and traces -->
+                        <g class="traces" stroke="url(#g1)" stroke-width="1.6" fill="none" stroke-linecap="round">
+                          <path class="t1" d="M20 40 H120 V80 H260" />
+                          <path class="t2" d="M40 160 H180 V120 H300" />
+                          <path class="t3" d="M60 20 V60 H100" />
+                        </g>
+                        <g class="nodes" fill="url(#g1)">
+                          <circle cx="20" cy="40" r="4.5" />
+                          <circle cx="120" cy="40" r="4.5" />
+                          <circle cx="260" cy="80" r="4.5" />
+                          <circle cx="40" cy="160" r="4.5" />
+                          <circle cx="180" cy="160" r="4.5" />
+                          <circle cx="300" cy="120" r="4.5" />
+                          <circle cx="100" cy="60" r="3.5" />
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="deck-shine" aria-hidden="true"></div>
+                    <div class="deck-meta" aria-hidden="true">
+                      <code class="code-snippet">const app = createApp({ secure: true, scale: 'auto' })</code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services section removed to reduce repetition; Solutions above covers core offerings -->
+
+      <!-- Additional sections: Solutions, Portfolio, Insights, Testimonials -->
+      <section id="solutions" class="solutions py-5">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="section-title" data-aos="fade-up">Solutions for business &amp; tech teams</h2>
+            <p class="text-muted small mb-0">Strategic, secure, and scalable solutions.</p>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="50">
+              <div class="service p-4">
+                <h3><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M7 9h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>Enterprise Web Apps</h3>
+                <p class="mb-0 text-muted">Custom platforms, SaaS, dashboards and integrations designed for scale.</p>
+              </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="service p-4">
+                <h3><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M7 15v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M17 15v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>Security &amp; Compliance</h3>
+                <p class="mb-0 text-muted">Vulnerability assessments, secure architecture and compliance planning.</p>
+              </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+              <div class="service p-4">
+                <h3><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M4 20c4-4 8-4 16 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg></span>Managed Maintenance</h3>
+                <p class="mb-0 text-muted">Monitoring, backups, performance and on-call support packages.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="portfolio py-5 bg-light">
+        <div class="container">
+          <h2 class="section-title" data-aos="fade-up">Selected work</h2>
+          <p class="text-muted mb-4">Projects that showcase our craft, security practices and results.</p>
+
+          <div class="row g-3" id="projects-grid">
+            <div class="col-sm-6 col-md-4" data-aos="zoom-in" data-project="1">
+              <div class="project-card p-3 rounded" tabindex="0" role="button" aria-pressed="false" data-project-trigger="1">
+                <picture>
+                  <source type="image/webp" srcset="assets/project1-480.webp 480w, assets/project1-800.webp 800w" sizes="(max-width:576px) 100vw, (max-width:768px) 50vw, 33vw">
+                  <source type="image/jpeg" srcset="assets/project1-480.jpg 480w, assets/project1-800.jpg 800w">
+                  <img loading="lazy" src="assets/project1.jpg" alt="Project 1" class="img-fluid rounded mb-3">
+                </picture>
+                <h4 class="mb-1">Fintech Dashboard</h4>
+                <p class="small text-muted mb-0">Real-time analytics and secure payment integrations.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4" data-aos="zoom-in" data-aos-delay="100" data-project="2">
+              <div class="project-card p-3 rounded" tabindex="0" role="button" aria-pressed="false" data-project-trigger="2">
+                <picture>
+                  <source type="image/webp" srcset="assets/project2-480.webp 480w, assets/project2-800.webp 800w" sizes="(max-width:576px) 100vw, (max-width:768px) 50vw, 33vw">
+                  <source type="image/jpeg" srcset="assets/project2-480.jpg 480w, assets/project2-800.jpg 800w">
+                  <img loading="lazy" src="assets/project2.jpg" alt="Project 2" class="img-fluid rounded mb-3">
+                </picture>
+                <h4 class="mb-1">E‑commerce Platform</h4>
+                <p class="small text-muted mb-0">Scalable storefront with A/B testing and analytics.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4" data-aos="zoom-in" data-aos-delay="200" data-project="3">
+              <div class="project-card p-3 rounded" tabindex="0" role="button" aria-pressed="false" data-project-trigger="3">
+                <picture>
+                  <source type="image/webp" srcset="assets/project3-480.webp 480w, assets/project3-800.webp 800w" sizes="(max-width:576px) 100vw, (max-width:768px) 50vw, 33vw">
+                  <source type="image/jpeg" srcset="assets/project3-480.jpg 480w, assets/project3-800.jpg 800w">
+                  <img loading="lazy" src="assets/project3.jpg" alt="Project 3" class="img-fluid rounded mb-3">
+                </picture>
+                <h4 class="mb-1">Secure API Layer</h4>
+                <p class="small text-muted mb-0">Tokenized endpoints and rate-limited microservices.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Insights section removed to simplify content; can be re-added later as a blog page -->
+
+      <!-- Testimonials removed to reduce repetition; client quotes can be added to Portfolio case studies instead -->
+
+      <section id="about" class="about py-5">
+        <div class="container">
+          <div class="row g-4 align-items-start">
+            <div class="col-lg-8">
+              <h2>We help small businesses and startups launch reliably.</h2>
+              <p class="text-muted">Siklab Solutions focuses on scalable websites and security-first development. We treat performance, accessibility, and security as core features.</p>
+              <a class="btn btn-primary" href="mailto:contact@siklabsolutions.com?subject=Quote%20Request&body=Hi%20Siklab%20Solutions%2C%0A%0AI%20would%20like%20to%20request%20a%20quote.%0A%0AThanks%2C">Get a Quote</a>
+            </div>
+            <div class="col-lg-4">
+              <div class="facts p-3 rounded">
+                <div class="fact-item mb-3">
+                  <strong>Fast delivery</strong>
+                  <div class="text-muted small">Milestone-driven sprints</div>
+                </div>
+                <div class="fact-item mb-3">
+                  <strong>Secure by design</strong>
+                  <div class="text-muted small">OWASP-aware implementations</div>
+                </div>
+                <div class="fact-item">
+                  <strong>Maintenance</strong>
+                  <div class="text-muted small">Packages to suit your budget</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact py-5">
+        <div class="container">
+          <h2 class="mb-2">Contact</h2>
+          <p class="sub text-muted mb-4">Let's talk about your project.</p>
+          
+          <div class="row g-4">
+            <!-- Email Section -->
+            <div class="col-lg-6">
+              <div class="service p-4 h-100">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="5" width="18" height="14" rx="2" stroke="var(--brand)" stroke-width="1.5" fill="none"></rect>
+                    <path d="M3 7l9 6 9-6" stroke="var(--brand)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                  <h3 class="mb-0">Email Us</h3>
+                </div>
+                <a href="mailto:contact@siklabsolutions.com" class="text-decoration-none d-block mb-3" style="color: var(--brand); font-size: 1.1rem;">contact@siklabsolutions.com</a>
+                <a class="btn btn-glow w-100" href="mailto:contact@siklabsolutions.com?subject=Website%20Inquiry&body=Hi%20Siklab%20Solutions%2C%0A%0AI%20am%20interested%20in%20your%20services%20and%20would%20like%20to%20learn%20more.%0A%0AThanks%2C%0A%5BYour%20Name%5D">Send Email</a>
+              </div>
+            </div>
+
+            <!-- Social Media Section -->
+            <div class="col-lg-6">
+              <div class="service p-4 h-100">
+                <h3 class="mb-3">Connect With Us</h3>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-primary d-flex align-items-center justify-content-center gap-2" onclick="alert('LinkedIn link coming soon!')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="2" y="3" width="20" height="18" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"></rect>
+                      <path d="M7.5 10.5v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                      <circle cx="7.5" cy="7.5" r="1.2" fill="currentColor"></circle>
+                      <path d="M11.5 16.5v-4c0-1 .8-1.5 1.6-1.5 1 0 1.6 0.7 1.6 1.5v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"></path>
+                    </svg>
+                    LinkedIn
+                  </button>
+                  
+                  <button class="btn btn-outline-primary d-flex align-items-center justify-content-center gap-2" onclick="alert('Facebook link coming soon!')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    Facebook
+                  </button>
+                  
+                  <button class="btn btn-outline-primary d-flex align-items-center justify-content-center gap-2" onclick="alert('X link coming soon!')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    X
+                  </button>
+                  
+                  <button class="btn btn-outline-primary d-flex align-items-center justify-content-center gap-2" onclick="alert('Instagram link coming soon!')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5" fill="none"></rect>
+                      <circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.5" fill="none"></circle>
+                      <circle cx="17.5" cy="6.5" r="1" fill="currentColor"></circle>
+                    </svg>
+                    Instagram
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Project modal (reused for portfolio items) -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true" aria-labelledby="projectModalTitle" role="dialog">
+      <div class="modal-dialog modal-xl modal-dialog-centered project-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="projectModalTitle">Project</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="projectModalBody" tabindex="0">
+            <picture>
+              <source type="image/webp" srcset="assets/project1-800.webp 800w, assets/project1-1200.webp 1200w">
+              <source type="image/jpeg" srcset="assets/project1-800.jpg 800w, assets/project1-1200.jpg 1200w">
+              <img src="assets/project1.jpg" alt="project image" class="img-fluid rounded" />
+            </picture>
+            <p class="mt-3 text-muted">Project details will appear here.</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="btn btn-outline">Visit site</a>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <p class="mb-0 text-muted">© 2025 Siklab Solutions</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Initialize AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+
+      // Set current year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // GSAP Animations
+      gsap.from('.tech-partner-badges .tech-badge', {
+        duration: 0.8,
+        opacity: 0,
+        y: 20,
+        stagger: 0.2,
+        ease: 'power2.out',
+        delay: 0.5
+      });
+
+      // Hero logo and orb animations (subtle)
+      try {
+        // gentle float of gradient orbs for depth
+        gsap.to('.gradient-orb.top-right', { x: -30, y: 20, duration: 8, ease: 'sine.inOut', repeat: -1, yoyo: true });
+        gsap.to('.gradient-orb.bottom-left', { x: 24, y: -18, duration: 9, ease: 'sine.inOut', repeat: -1, yoyo: true });
+        // small breathing for logo
+        gsap.to('.hero-logo', { scale: 1.04, duration: 3.2, ease: 'sine.inOut', repeat: -1, yoyo: true, transformOrigin: '50% 50%' });
+      } catch (e) { /* GSAP may be paused on reduced-motion devices */ }
+
+      // Navbar scroll effect
+      window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+          navbar.style.background = 'var(--glass)';
+          navbar.style.backdropFilter = 'blur(12px)';
+        } else {
+          navbar.style.background = 'transparent';
+          navbar.style.backdropFilter = 'none';
+        }
+      });
+
+      // Highlight active nav link on scroll
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.navbar .nav-link');
+      function onScrollActive() {
+        const y = window.scrollY + 120; // offset for header
+        sections.forEach(sec => {
+          if (sec.offsetTop <= y && (sec.offsetTop + sec.offsetHeight) > y) {
+            navLinks.forEach(a => {
+              if (a.getAttribute('href') === `#${sec.id}`) {
+                a.classList.add('active');
+              } else {
+                a.classList.remove('active');
+              }
+            });
+          }
+        });
+      }
+      window.addEventListener('scroll', onScrollActive);
+      onScrollActive();
+
+      // Portfolio: open modal with project details (with focus management)
+      const projectModalEl = document.getElementById('projectModal');
+      const projectModal = new bootstrap.Modal(projectModalEl);
+      const projectTitle = document.getElementById('projectModalTitle');
+      const projectBody = document.getElementById('projectModalBody');
+      let lastFocusedElement = null;
+
+      document.querySelectorAll('[data-project-trigger]').forEach(card => {
+        card.addEventListener('click', () => openProject(card));
+        card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openProject(card); } });
+      });
+
+      function openProject(card) {
+        lastFocusedElement = document.activeElement;
+        const id = card.getAttribute('data-project-trigger') || '1';
+        const data = {
+          '1': { title: 'Fintech Dashboard', base: 'assets/project1', desc: 'A secure fintech dashboard with real-time analytics and payment integrations.' },
+          '2': { title: 'E-commerce Platform', base: 'assets/project2', desc: 'A scalable e-commerce platform with A/B testing and integrated analytics.' },
+          '3': { title: 'Secure API Layer', base: 'assets/project3', desc: 'Tokenized endpoints, rate limiting and robust auth for microservices.' }
+        }[id];
+        projectTitle.textContent = data.title;
+        projectBody.innerHTML = `
+          <picture>
+            <source type="image/webp" srcset="${data.base}-800.webp 800w, ${data.base}-1200.webp 1200w">
+            <source type="image/jpeg" srcset="${data.base}-800.jpg 800w, ${data.base}-1200.jpg 1200w">
+            <img src="${data.base}.jpg" alt="${data.title}" class="img-fluid rounded" />
+          </picture>
+          <p class='mt-3 text-muted'>${data.desc}</p>
+        `;
+        projectModal.show();
+        // after shown, focus modal body
+        projectModalEl.addEventListener('shown.bs.modal', () => { projectBody.focus(); });
+      }
+
+      // focus trap for modal
+      projectModalEl.addEventListener('keydown', function(e) {
+        if (e.key !== 'Tab') return;
+        const focusable = projectModalEl.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])');
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      });
+      projectModalEl.addEventListener('hidden.bs.modal', () => { if (lastFocusedElement) lastFocusedElement.focus(); });
+
+      // small perf guard for animations on mobile / reduce-motion preference
+      if (window.matchMedia && (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 520)) {
+        try { gsap.globalTimeline.pause(); } catch (e) {}
+      }
+
+      // Contact handled as simple mailto / external CTA in the markup (no JS form needed)
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
