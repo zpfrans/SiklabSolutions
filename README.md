@@ -1,4 +1,4 @@
-# Code Flux Studios — Landing Page
+# Siklab Solutions — Landing Page
 
 Files created in this folder:
 
