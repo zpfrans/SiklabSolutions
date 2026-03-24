@@ -31,10 +31,6 @@ jobs:
         working-directory: siklab-react
         run: npm run build
 
-      - name: Install backend dependencies
-        working-directory: siklab-react/server
-        run: npm ci --production
-
       - name: Deploy to Hostinger
         uses: appleboy/ssh-action@master
         with:
@@ -48,25 +44,16 @@ jobs:
             # Pull latest changes
             git pull origin main
             
-            # Install dependencies
+            # Install root dependencies
+            npm ci --production 2>/dev/null || true
+            
+            # Build and deploy frontend
             cd siklab-react
             npm ci --production
-            
-            cd server
-            npm ci --production
-            
-            # Build frontend
-            cd ..
             npm run build
             
-            cd server
-            
-            # Restart the application using PM2
-            pm2 restart siklab-api || pm2 start server.js --name "siklab-api" --instances max --exec-mode cluster
-            pm2 save
-            
             # Log deployment
-            echo "Deployment completed at $(date)" >> ../../deployment.log
+            echo "Deployment completed at $(date)" >> ../deployment.log
 
       - name: Deployment Status Notification
         if: always()

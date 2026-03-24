@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide explains how to set up GitHub Actions to automatically deploy your SiklabSolutions project to Hostinger whenever you push to the `main` branch.
+This guide explains how to set up GitHub Actions to automatically deploy your SiklabSolutions frontend to Hostinger whenever you push to the `main` branch. The workflow builds and deploys the React application, pointing your domain to the static files.
 
 ---
 
@@ -19,14 +19,9 @@ Before setting up GitHub Actions, ensure you have:
 2. **Git Initialized with Remote**
    ```bash
    cd c:\Users\User\OneDrive - Asia Pacific College\Desktop\SiklabSolutionsJS
-   git remote add origin https://github.com/siklabsolutions/SiklabSolutions.git
+   git remote -v  # Verify remote is configured
    git branch -M main
    git push -u origin main
-   ```
-
-3. **PM2 Installed on Hostinger**
-   ```bash
-   npm install -g pm2
    ```
 
 ---
@@ -185,7 +180,27 @@ server {
 
 ---
 
-## Step 6: Test the Deployment
+## Step 3: Verify Hostinger Setup
+
+Ensure your deployment directory exists on Hostinger:
+
+```bash
+ssh -p 65002 u160668427@195.35.62.124
+
+# Create deployment directory if needed
+mkdir -p ~/public_html/siklab
+cd ~/public_html/siklab
+
+# Clone repo
+git clone https://github.com/zpfrans/SiklabSolutions.git .
+git status
+
+# Verify Node.js
+node --version  # Should be 18+
+npm --version
+```
+
+---
 
 ### Manual Test (before first GitHub push)
 
