@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+deployment/
+*.tar.gz
+
+# Logs & Debug
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.DS_Store
+
+# Environment
+.env
+.env.local
+.env.production.local
+.env*.local
+.env.production
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Local development
+*.local
+
+# Keep deployment configs
+!nginx.conf
+!ecosystem.config.js
+!HOSTINGER_DEPLOYMENT.md
+!PRE_DEPLOYMENT_CHECKLIST.md
+!deploy.sh
+
