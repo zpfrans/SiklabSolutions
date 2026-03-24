@@ -39,6 +39,13 @@ jobs:
         run: |
           set -euo pipefail
 
+          # Validate required values and fall back to Hostinger SSH default port if empty.
+          : "${HOST:?Missing HOSTINGER_HOST secret}"
+          : "${USERNAME:?Missing HOSTINGER_USERNAME secret}"
+          : "${DEPLOYMENT_PATH:?Missing DEPLOYMENT_PATH secret}"
+          : "${SSH_PRIVATE_KEY:?Missing HOSTINGER_SSH_KEY secret}"
+          PORT="${PORT:-65002}"
+
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
           printf "%s\n" "$SSH_PRIVATE_KEY" > ~/.ssh/hostinger_deploy_key
