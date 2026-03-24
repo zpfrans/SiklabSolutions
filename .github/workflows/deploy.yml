@@ -28,13 +28,20 @@ jobs:
         working-directory: siklab-react
         run: npm run build
 
+      - name: Debug key source availability
+        run: |
+          echo "HAS_HOSTINGER_SSH_KEY=${{ secrets.HOSTINGER_SSH_KEY != '' }}"
+          echo "HAS_HOSTINGER_PRIVATE_KEY=${{ secrets.HOSTINGER_PRIVATE_KEY != '' }}"
+          echo "HAS_VAR_HOSTINGER_SSH_KEY=${{ vars.HOSTINGER_SSH_KEY != '' }}"
+          echo "HAS_VAR_HOSTINGER_PRIVATE_KEY=${{ vars.HOSTINGER_PRIVATE_KEY != '' }}"
+
       - name: Deploy to Hostinger
         shell: bash
         env:
           HOST: ${{ secrets.HOSTINGER_HOST || '195.35.62.124' }}
           USERNAME: ${{ secrets.HOSTINGER_USERNAME || 'u160668427' }}
           DEPLOYMENT_PATH: ${{ secrets.DEPLOYMENT_PATH || '/home/u160668427/public_html/siklab' }}
-          SSH_PRIVATE_KEY: ${{ secrets.HOSTINGER_SSH_KEY || secrets.HOSTINGER_PRIVATE_KEY || vars.HOSTINGER_SSH_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.HOSTINGER_SSH_KEY || secrets.HOSTINGER_PRIVATE_KEY || vars.HOSTINGER_SSH_KEY || vars.HOSTINGER_PRIVATE_KEY }}
         run: |
           set -euo pipefail
 
