@@ -1,0 +1,78 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Install frontend dependencies
+        working-directory: siklab-react
+        run: npm ci
+
+      - name: Build React frontend
+        working-directory: siklab-react
+        run: npm run build
+
+      - name: Install backend dependencies
+        working-directory: siklab-react/server
+        run: npm ci --production
+
+      - name: Deploy to Hostinger
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          port: ${{ secrets.HOSTINGER_PORT }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          script: |
+            cd ${{ secrets.DEPLOYMENT_PATH }}
+            
+            # Pull latest changes
+            git pull origin main
+            
+            # Install dependencies
+            cd siklab-react
+            npm ci --production
+            
+            cd server
+            npm ci --production
+            
+            # Build frontend
+            cd ..
+            npm run build
+            
+            cd server
+            
+            # Restart the application using PM2
+            pm2 restart siklab-api || pm2 start server.js --name "siklab-api" --instances max --exec-mode cluster
+            pm2 save
+            
+            # Log deployment
+            echo "Deployment completed at $(date)" >> ../../deployment.log
+
+      - name: Deployment Status Notification
+        if: always()
+        run: |
+          if [ "${{ job.status }}" = "success" ]; then
+            echo "✅ Deployment to Hostinger completed successfully!"
+          else
+            echo "❌ Deployment failed!"
+          fi
