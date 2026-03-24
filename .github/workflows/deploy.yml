@@ -20,9 +20,6 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - name: Install root dependencies
-        run: npm ci
-
       - name: Install frontend dependencies
         working-directory: siklab-react
         run: npm ci
@@ -39,18 +36,24 @@ jobs:
           username: ${{ secrets.HOSTINGER_USERNAME }}
           key: ${{ secrets.HOSTINGER_SSH_KEY }}
           script: |
+            set -e
+            export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
+
             cd ${{ secrets.DEPLOYMENT_PATH }}
             
             # Pull latest changes
             git pull origin main
-            
-            # Install root dependencies
-            npm ci 2>/dev/null || true
+
+            # Fail early if Node.js/NPM isn't available in this non-interactive shell
+            command -v npm >/dev/null 2>&1 || { echo "npm is not available in PATH"; exit 1; }
             
             # Build and deploy frontend
             cd siklab-react
             npm ci
             npm run build
+
+            # Publish built static files to Hostinger web root
+            cp -r dist/* "$HOME/public_html/"
             
             # Log deployment
             echo "Deployment completed at $(date)" >> ../deployment.log
