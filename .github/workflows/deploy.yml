@@ -29,34 +29,37 @@ jobs:
         run: npm run build
 
       - name: Deploy to Hostinger
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOSTINGER_HOST }}
-          port: ${{ secrets.HOSTINGER_PORT }}
-          username: ${{ secrets.HOSTINGER_USERNAME }}
-          key: ${{ secrets.HOSTINGER_SSH_KEY }}
-          script: |
+        shell: bash
+        env:
+          HOST: ${{ secrets.HOSTINGER_HOST }}
+          PORT: ${{ secrets.HOSTINGER_PORT }}
+          USERNAME: ${{ secrets.HOSTINGER_USERNAME }}
+          DEPLOYMENT_PATH: ${{ secrets.DEPLOYMENT_PATH }}
+          SSH_PRIVATE_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf "%s\n" "$SSH_PRIVATE_KEY" > ~/.ssh/hostinger_deploy_key
+          chmod 600 ~/.ssh/hostinger_deploy_key
+
+          ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/hostinger_deploy_key -p "$PORT" "$USERNAME@$HOST" '
             set -e
             export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
 
-            cd ${{ secrets.DEPLOYMENT_PATH }}
-            
-            # Pull latest changes
+            cd '"$DEPLOYMENT_PATH"'
             git pull origin main
 
-            # Fail early if Node.js/NPM isn't available in this non-interactive shell
             command -v npm >/dev/null 2>&1 || { echo "npm is not available in PATH"; exit 1; }
-            
-            # Build and deploy frontend
+
             cd siklab-react
             npm ci
             npm run build
 
-            # Publish built static files to Hostinger web root
             cp -r dist/* "$HOME/public_html/"
-            
-            # Log deployment
             echo "Deployment completed at $(date)" >> ../deployment.log
+          '
 
       - name: Deployment Status Notification
         if: always()
