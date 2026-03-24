@@ -31,17 +31,14 @@ jobs:
       - name: Deploy to Hostinger
         shell: bash
         env:
-          HOST: ${{ secrets.HOSTINGER_HOST }}
-          USERNAME: ${{ secrets.HOSTINGER_USERNAME }}
-          DEPLOYMENT_PATH: ${{ secrets.DEPLOYMENT_PATH }}
+          HOST: ${{ secrets.HOSTINGER_HOST || '195.35.62.124' }}
+          USERNAME: ${{ secrets.HOSTINGER_USERNAME || 'u160668427' }}
+          DEPLOYMENT_PATH: ${{ secrets.DEPLOYMENT_PATH || '/home/u160668427/public_html/siklab' }}
           SSH_PRIVATE_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
         run: |
           set -euo pipefail
 
-          # Validate required values and fall back to Hostinger SSH default port if empty.
-          : "${HOST:?Missing HOSTINGER_HOST secret}"
-          : "${USERNAME:?Missing HOSTINGER_USERNAME secret}"
-          : "${DEPLOYMENT_PATH:?Missing DEPLOYMENT_PATH secret}"
+          # Validate required values (HOST/USERNAME/DEPLOYMENT_PATH have defaults above).
           : "${SSH_PRIVATE_KEY:?Missing HOSTINGER_SSH_KEY secret}"
 
           mkdir -p ~/.ssh
