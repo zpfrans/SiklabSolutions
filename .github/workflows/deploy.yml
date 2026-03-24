@@ -32,7 +32,6 @@ jobs:
         shell: bash
         env:
           HOST: ${{ secrets.HOSTINGER_HOST }}
-          PORT: ${{ secrets.HOSTINGER_PORT }}
           USERNAME: ${{ secrets.HOSTINGER_USERNAME }}
           DEPLOYMENT_PATH: ${{ secrets.DEPLOYMENT_PATH }}
           SSH_PRIVATE_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
@@ -44,14 +43,13 @@ jobs:
           : "${USERNAME:?Missing HOSTINGER_USERNAME secret}"
           : "${DEPLOYMENT_PATH:?Missing DEPLOYMENT_PATH secret}"
           : "${SSH_PRIVATE_KEY:?Missing HOSTINGER_SSH_KEY secret}"
-          PORT="${PORT:-65002}"
 
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
           printf "%s\n" "$SSH_PRIVATE_KEY" > ~/.ssh/hostinger_deploy_key
           chmod 600 ~/.ssh/hostinger_deploy_key
 
-          ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/hostinger_deploy_key -p "$PORT" "$USERNAME@$HOST" '
+          ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/hostinger_deploy_key -p 65002 "$USERNAME@$HOST" '
             set -e
             export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
 
